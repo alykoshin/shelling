@@ -1,0 +1,12 @@
+{
+  "generator-mini-package": {
+    "promptValues": {
+      "pkgDesc": "Set of shell utilities",
+      "keywords": [
+        "shell",
+        "fs",
+        "spawn"
+      ]
+    }
+  }
+}
