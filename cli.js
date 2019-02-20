@@ -4,8 +4,6 @@
 var argv = require('minimist')(process.argv.slice(2));
 var pkg = require('./package.json');
 var shelling = require('./');
-var {lookup } = require('./lib/lookupError');
-var {gen_certs } = require('./lib/genSelfSignedCerts');
 
 
 function help() {
@@ -46,13 +44,21 @@ async function handleArgv() {
     process.exit(0);
 
   } else if (process.argv[ 2 ] === 'gen_certs') {
-    const res = await gen_certs(process.argv[3]);
+    const res = await shelling.gen_certs(process.argv[3]);
     //console.log('*', res);
     process.exit(0);
 
   } else if (process.argv[ 2 ] === 'lookup') {
     const code = process.argv[ 3 ];
-    console.log('*', lookup(code));
+    console.log('*', shelling.lookup(code));
+    process.exit(0);
+
+  } else if (process.argv[ 2 ] === 'keypress') {
+    console.log('*', await shelling.keypress('Press any key'));
+    process.exit(0);
+
+  } else if (process.argv[ 2 ] === 'confirm') {
+    console.log('*', await shelling.confirm('Continue y/n?'));
     process.exit(0);
 
   } else if (process.argv[ 2 ] === 'spawn') {
