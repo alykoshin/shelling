@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=0.10"
   },
+  "bin": {
+    "shelling": "./cli.js"
+  },
   "scripts": {
     "_npm-audit": "npm audit --audit-level high",
     "_deps-check": "npm-check-updates --error-level 2",
