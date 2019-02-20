@@ -7,16 +7,16 @@
     "node": ">=0.10"
   },
   "scripts": {
-    "nsp": "nsp check",
+    "_npm-audit": "npm audit --audit-level high",
     "_deps-check": "npm-check-updates --error-level 2",
     "_deps-update": "echo '* Updating packages versions... '; npm-check-updates -u --upgradeAll --error-level 1 && npm install",
     "_check-changes": "echo '* Checking if git directory is clean... '; bash -c '[[ -z $(git status -uno --porcelain) ]]'",
     "update-deps": "npm run _check-changes && npm run _deps-update && npm test && git commit -am 'updated deps'",
     "lint": "eslint -f unix .",
     "inspect": "jsinspect --ignore 'coverage|test'",
-    "pretest": "npm run lint && npm run inspect && npm run nsp && npm run _deps-check",
+    "pretest": "npm run lint && npm run inspect && npm run _npm-audit && npm run _deps-check",
     "_test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*",
-    "test": "npm run _test",
+    "test": "npm run __test",
     "__test": "echo \"Warning: no test specified\" && exit 0",
     "___test": "echo \"Error: no test specified\" && exit 1",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*",
@@ -32,7 +32,7 @@
     "coverall": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
-      "shell,fs,spawn"
+    "shell,fs,spawn"
   ],
   "author": "Alexander <alykoshin@gmail.com>",
   "license": "MIT",
@@ -48,15 +48,15 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "chai-things": "^0.2.0",
-    "coveralls": "^3.0.0",
-    "eslint": "^4.15.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.14.1",
     "istanbul": "^0.4.5",
-    "jshint": "^2.9.5",
+    "jshint": "^2.10.1",
     "jsinspect": "^0.12.7",
-    "mocha": "^4.1.0",
+    "mocha": "^6.0.0",
     "mockery": "^2.1.0",
-    "sinon": "^4.1.4"
+    "sinon": "^7.2.4"
   }
 }

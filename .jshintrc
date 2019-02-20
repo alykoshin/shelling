@@ -8,6 +8,7 @@
   "browser":true,
   "node": true,
   "esnext": true,
+  "esversion": 9,
   "camelcase": false,
   "curly": true,
   "eqeqeq": true,
