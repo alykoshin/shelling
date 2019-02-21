@@ -14,7 +14,7 @@
     "client_cert": "client-cert.pem"
   },
   "serverExtFile":      "subjectAltName = DNS:localhost,IP:127.0.0.1",
-  "clientExtFile": "extendedKeyUsage = clientAuth",
+  "clientExtFile":      "extendedKeyUsage = clientAuth",
 
   "country":            "RU",
   "state":              "Moscow",
