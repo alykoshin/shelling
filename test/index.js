@@ -27,30 +27,30 @@ describe('shelling', function () {
 
   });
 
-  describe('lookup', function () {
-    let lookup;
+  describe('lookupError', function () {
+    let lookupError;
     before('before', function () {
-      lookup = require('../lib/lookupError').lookup;
+      lookupError = require('../lib/lookupError');
     });
 
     it('is a function', function () {
-      assert(typeof lookup === 'function', 'Expect function');
+      assert(typeof lookupError === 'function', 'Expect function');
     });
 
     it('handles common errors', function () {
-      const result = lookup('EACCES');
+      const result = lookupError('EACCES');
       expect(result).to.be.an('object');
       expect(result).to.include.all.keys('short', 'long');
     });
 
     it('handles linux errors', function () {
-      const result = lookup('EACCES');
+      const result = lookupError('EACCES');
       expect(result).to.be.an('object');
       expect(result).to.include.all.keys('short');
     });
 
     it('handles unknown errors', function () {
-      const result = lookup('__non__existent__');
+      const result = lookupError('__non__existent__');
       expect(result).to.be.an('object');
       expect(result).to.include.all.keys('short', 'long', 'notFound');
       expect(result).to.include({ notFound: true });
