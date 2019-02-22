@@ -1,6 +1,6 @@
 {
   "name": "shelling",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Set of shell utilities",
   "main": "./index.js",
   "engines": {
