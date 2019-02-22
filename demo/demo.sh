@@ -12,7 +12,7 @@
 #node cli.js git readSpecificGitCredentials '{"hostname":"github.com","username":"alykoshin"}'
 #node cli.js git readGithubUsername
 #node cli.js git readGithubToken
-node cli.js git createGithubRepo
+node cli.js git createGithubRepo '{"username":"alykoshin","name":"test","description":"test"}'
 
 #node cli.js mongo backup ./demo/mongo-backup.json ./demo/mongo-restore.json
 

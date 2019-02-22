@@ -68,10 +68,12 @@ async function handleArgv() {
     if (!action) throw new Error('Expecting GitActivity action');
     if (!gitActivity[action]) throw new Error('Invalid GitActivity action');
     let args = {};
+    let s = action;
     try {
       //console.log('process.argv[4]:', process.argv[4])
       args = JSON.parse(process.argv[ 4 ]);
     } catch(e) {}
+    console.log(`* git ${action} ${JSON.stringify(args)}`);
     const res = await gitActivity[ action ](args);
     console.log('* RESULT:', res);
     process.exit(0);
