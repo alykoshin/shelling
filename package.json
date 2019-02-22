@@ -48,7 +48,9 @@
   },
   "homepage": "https://github.com/alykoshin/shelling",
   "dependencies": {
+    "@octokit/rest": "^16.16.0",
     "archiver": "^3.0.0",
+    "git-config": "0.0.7",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1"

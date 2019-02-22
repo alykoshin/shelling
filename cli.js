@@ -67,8 +67,13 @@ async function handleArgv() {
     const action = process.argv[3];
     if (!action) throw new Error('Expecting GitActivity action');
     if (!gitActivity[action]) throw new Error('Invalid GitActivity action');
-    const res = await gitActivity[ action ]();
-    //console.log('*', res);
+    let args = {};
+    try {
+      //console.log('process.argv[4]:', process.argv[4])
+      args = JSON.parse(process.argv[ 4 ]);
+    } catch(e) {}
+    const res = await gitActivity[ action ](args);
+    console.log('* RESULT:', res);
     process.exit(0);
 
   } else if (process.argv[ 2 ] === 'lookup') {
